@@ -37,11 +37,8 @@ const h = useState("height", () => 250);
 </script>
 
 <script lang="ts">
+
 import * as signalR from "@microsoft/signalr";
-import type OrderBookSnapshot from "./types/OrderBookSnapshot";
-import type SymbolInfo from "./types/SymbolInfo";
-import type Quote from "./types/Quote";
-import ConnectionState from "./types/ConnectionState";
 
 function emptyQuote(p: number): Quote { return ({ p: p, q: 0 }) };
 export default {
@@ -201,6 +198,9 @@ export default {
 
         },
         round(x: number) {
+            // ts doesn't like passing an e-notation number to round
+
+            // @ts-ignore
             return +(Math.round(x + "e+" + this.tickDigits) + "e-" + this.tickDigits)
         },
         draw(x: number, s: OrderBookSnapshot, baseLine: number) {
@@ -214,7 +214,7 @@ export default {
 
             // todo this takes around 14ms, optimize
 
-            let all: Quote[] = new Array<number>(this.height);
+            let all: Quote[] = new Array<Quote>(this.height);
             // let all: Quote[] = [...s.a, ...s.b];
 
             let aindex = 0;

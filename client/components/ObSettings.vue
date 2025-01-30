@@ -55,7 +55,6 @@
 </template> 
 
 <script lang="ts" setup>
-import ConnectionState from './types/ConnectionState';
 
 const width = useState("width");
 const height = useState("height")

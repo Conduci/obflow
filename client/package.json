@@ -1,5 +1,5 @@
 {
-  "name": "realtime-ob",
+  "name": "obflow",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,12 +10,16 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.9.3",
-    "vue": "^3.4.14",
-    "vue-router": "^4.2.5"
+    "nuxt": "^3.15.4",
+    "typescript": "^5.7.3",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
+    "vue-tsc": "^2.2.0",
+    "@types/bun": "latest"
   },
   "dependencies": {
-    "@microsoft/signalr": "^8.0.0",
-    "@nuxtjs/tailwindcss": "^6.11.2"
-  }
+    "@microsoft/signalr": "^8.0.7",
+    "@nuxtjs/tailwindcss": "^6.13.1"
+  },
+  "module": "index.ts"
 }
